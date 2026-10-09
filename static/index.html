@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Certificate Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <h1>Certificate Engine</h1>
+            <p>Generate thousands of premium certificates instantly.</p>
+        </header>
+
+        <main>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label for="event_name">Event Name</label>
+                    <input type="text" id="event_name" required placeholder="e.g. Python Masterclass">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event_date">Event Date</label>
+                        <input type="date" id="event_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="issuer_name">Issuer Name</label>
+                        <input type="text" id="issuer_name" required placeholder="e.g. Google Deepmind">
+                    </div>
+                </div>
+
+                <div class="recipients-section">
+                    <h3>Recipients</h3>
+                    <div id="recipientsList">
+                        <!-- Recipient rows will be dynamically added here -->
+                    </div>
+                    <button type="button" id="addRecipientBtn" class="btn secondary">+ Add Recipient</button>
+                </div>
+
+                <button type="submit" id="submitJobBtn" class="btn primary">Generate Certificates</button>
+            </form>
+
+            <div id="dashboard" class="hidden">
+                <h2>Job Dashboard</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="statusText">Status: Pending</p>
+                
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <h4>Total</h4>
+                        <span id="statTotal">0</span>
+                    </div>
+                    <div class="stat-box success-box">
+                        <h4>Success</h4>
+                        <span id="statSuccess">0</span>
+                    </div>
+                    <div class="stat-box failed-box">
+                        <h4>Failed</h4>
+                        <span id="statFailed">0</span>
+                    </div>
+                </div>
+
+                <div id="downloadSection" class="hidden">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Generated Certificates</h3>
+                        <a id="downloadZipBtn" class="btn primary hidden" style="width: auto; padding: 0.5rem 1rem; font-size: 0.85rem; text-decoration: none; margin-top: 0;">Download All (ZIP)</a>
+                    </div>
+                    <ul id="downloadList"></ul>
+                </div>
+                
+                <button type="button" id="newJobBtn" class="btn secondary mt-20">Start New Job</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

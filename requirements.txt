@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy
+alembic
+psycopg2-binary
+pydantic-settings
+pydantic
+reportlab
+python-multipart
+email-validator
+
+# testing
+pytest
+pytest-asyncio
+httpx
+pytest-env
